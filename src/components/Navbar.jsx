@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SignIn from './MainPublicPage/SignIn';
 
 
-const Navbar = () => {
+const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showButtons, setShowButtons] = useState(true);
 

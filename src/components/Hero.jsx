@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
-const Hero = () => {
+import SignIn from './MainPublicPage/SignIn'
+import Navbar from './Navbar';
+
+const Hero = ({ toggleCloseSignIn }) => {
+
+    const [showSignInForm, setShowSignInForm] = useState(false);
+
+    const handleJoinsUsClick = () => {
+        setShowSignInForm(true);
+    };
+
+
+    const closeSignInForm = () => {
+        setShowSignInForm(false);
+    };
+
     return (
         <div className='w-full h-fit flex flex-col'>
 
@@ -8,7 +23,7 @@ const Hero = () => {
                     <p className='w-fit h-fit text-white text-3xl mb-8'>
                         Your journey begins Here!
                     </p>
-                    <button className='border border-white text-white text-xl p-2 rounded-md hover:bg-white hover:text-[#606C38]'>
+                    <button onClick={handleJoinsUsClick} className='border border-white text-white text-xl p-2 rounded-md hover:bg-white hover:text-[#606C38]'>
                         Join Us!
                     </button>
                 </div>
@@ -44,7 +59,11 @@ const Hero = () => {
                 </div>
 
 
-
+                {showSignInForm && (
+                <div className="fixed top-0 left-0 w-full h-full bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
+                    <SignIn closeSignInModal={closeSignInForm} />
+                </div>
+            )}
 
         </div>
     )

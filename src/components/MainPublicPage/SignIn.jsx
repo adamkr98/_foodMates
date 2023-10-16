@@ -72,8 +72,13 @@ const SignIn = ({ closeSignInModal }) => {
   return (
     <div className="w-full relative flex justify-center items-center">
       {!isClosed && (
-        <div className="w-[40rem] max-w-[90%] h-[70vh] bg-[#e8ebee] md:bg-green-400 rounded-sm">
+        <div className="w-[40rem] max-w-[90%] h-[70vh] bg-[#e8ebee] md:bg-green-400 rounded-sm relative">
           
+
+          <button onClick={toggleCloseSignIn} className="absolute p-2 top-2 right-4">
+            X
+          </button>
+
           <div className='w-full mt-8 mb-4 flex justify-center'>
             <p className='text-2xl'>Hello, Nice to met You!</p>
           </div>
@@ -81,6 +86,7 @@ const SignIn = ({ closeSignInModal }) => {
           <form action="" className="w-full h-fit flex flex-col items-center">
             
             <div className="w-[80%] mb-4 mt-4 flex flex-col items-center">
+              
               <label htmlFor="email" className="w-[80%] pb-2">
                 Email
               </label>
@@ -124,7 +130,7 @@ const SignIn = ({ closeSignInModal }) => {
                 </select>
 
               </div>
-
+              
             </div>
 
            
@@ -133,9 +139,7 @@ const SignIn = ({ closeSignInModal }) => {
               SignUp
             </button>
           </form>
-          <button onClick={toggleCloseSignIn} className="absolute top-0 right-0">
-            x
-          </button>
+          
         </div>
       )}
     </div>
