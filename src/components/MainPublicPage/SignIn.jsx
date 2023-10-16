@@ -2,16 +2,21 @@ import React, { useState, useRef } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
 import { auth, database } from './firebase'; // Import Firebase objects
+import Login from './LogIn';
 
 const SignIn = ({ closeSignInModal }) => {
   const [isClosed, setIsClosed] = useState(false);
-
+  const [isSignUpForm, setIsSignUpForm] = useState(true);
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const userNameRef = useRef();
   const roleRef = useRef();
   const confPasswordRef = useRef();
+
+  const toggleForm = () => {
+    setIsSignUpForm(!isSignUpForm);
+  };
 
   const toggleCloseSignIn = () => {
     setIsClosed(true);
@@ -135,9 +140,18 @@ const SignIn = ({ closeSignInModal }) => {
 
            
             
-            <button type="button" onClick={handleRegister} className="bg bg-[#606C38] pb-2 pt-2 pl-4 pr-4 hover:bg-[#7f8f49] mb-4 rounded-md text-white">
-              SignUp
-            </button>
+            <div className='border border-red-400 w-[20%] flex items-center'>
+            <button
+                    type="button"
+                    onClick={handleRegister}
+                    className="bg bg-[#606C38] pb-2 pt-2 pl-4 pr-4 hover:bg-[#7f8f49] mb-4 rounded-md text-white flex"
+                  >
+                    Sign Up
+                  </button>
+                  <button onClick={toggleForm} className='flex'>
+                    Log In
+                  </button>
+            </div>
           </form>
           
         </div>

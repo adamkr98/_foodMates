@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SignIn from './MainPublicPage/SignIn';
+import { Link } from 'react-router-dom'
 
 
 const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
@@ -22,7 +23,7 @@ const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
       <div className="w-full h-[10vh] flex justify-center">
         <div className="w-[30%] pl-2 pr-2 sm:w-[30%] md:w-[10%] flex justify-start">
           <p className="w-fit flex justify-center items-center">
-            foodMates
+            <Link to="/">foodMates</Link>
           </p>
         </div>
 
