@@ -1,19 +1,30 @@
 import React from 'react';
-import MainPage from './components/MainPublicPage/MainPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import MainPage from './components/MainPublicPage/MainPage';
 import Categories from './components/pages/Categories';
+import Vegetables from './components/pages/Vegetables';
+import Fruits from './components/pages/Fruits';
+import Fish from './components/pages/Fish';
+import Meat from './components/pages/Meat';
+import NoPage from './components/NoPage';
 
 function App() {
   return (
     <React.StrictMode>
-      <Router>
-        <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='categories' element={<Categories />} />
-        </Routes>
-      </Router>
-    </React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/categories" element={<Categories />} />
+          <Route path="vegetables" element={<Vegetables />} />
+          <Route path="fruits" element={<Fruits />} />
+          <Route path="meat" element={<Meat />} />
+          <Route path="fish" element={<Fish />} />
+        
+          <Route path='*' element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
   );
 }
 

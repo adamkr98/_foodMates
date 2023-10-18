@@ -20,7 +20,7 @@ const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
 
   return (
     <>
-      <div className="w-full h-[10vh] flex justify-center">
+      <div className="w-full h-[10vh] flex justify-center shadow">
         <div className="w-[30%] pl-2 pr-2 sm:w-[30%] md:w-[10%] flex justify-start">
           <p className="w-fit flex justify-center items-center">
             <Link to="/">foodMates</Link>
