@@ -6,7 +6,6 @@ import Footer from '../Footer';
 const MainPage = () => {
     return (
         <>
-            <Navbar />
             <Hero />
             <Footer />
         </>

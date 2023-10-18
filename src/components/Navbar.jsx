@@ -18,6 +18,8 @@ const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
 
   window.addEventListener("resize", handleWindowResize);
 
+  const renderButtons = location.pathname === '/' && showButtons;
+
   return (
     <>
       <div className="w-full h-[10vh] flex justify-center shadow">
@@ -33,7 +35,7 @@ const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
             <li className="w-11 mr-8 flex justify-center items-center">Contact</li>
           </ul>
 
-          {showButtons && (
+          {renderButtons && (
             <div className="w-[8rem] mr-4 flex justify-around">
               <div className="w-full flex justify-around items-center">
                 <button onClick={toggleModal} className="w-fit p-2 font-bold rounded-md border-2 border-transparent hover:border-2 hover:border-gray-400">
@@ -53,5 +55,4 @@ const Navbar = ({ showSignInForm, handleJoinsUsClick }) => {
     </>
   );
 };
-
 export default Navbar;

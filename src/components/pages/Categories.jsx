@@ -11,7 +11,6 @@ import Fish from './Fish';
 const Categories = () => {
     return (
         <>
-            <Navbar />
             <div className="h-[80vh] flex flex-wrap justify-around">
                 <div className="w-[20rem] ml-4 mb-4 flex flex-col items-center justify-center">
                     <Link to="/vegetables">

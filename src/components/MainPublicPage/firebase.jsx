@@ -1,11 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
+import { getDatabase, ref, set, } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_REACT_APP_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_REACT_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: import.meta.env.VITE_REACT_APP_FIREBASE_DATABASE_URL,
+  databaseURL: import.meta.env.VITE_REACT_APP_FIREBASE_DATABASE_URL,   
   projectId: import.meta.env.VITE_REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
@@ -16,6 +16,20 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const database = getDatabase(app);
+const database = getDatabase();
+
+
+let writeUserData = (userId, name, email, imageUrl) => {
+
+  const reference = ref(database, 'users/' + userId);
+
+  set(reference, {
+    username: name,
+    email: email,
+    profile_picture: imageUrl
+  });
+}
+
+writeUserData("Adam", "Space", "adamspace@gmail.com", "myImageurl");
 
 export { auth, database };

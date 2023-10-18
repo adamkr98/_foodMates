@@ -23,6 +23,19 @@ const SignIn = ({ closeSignInModal }) => {
     closeSignInModal();
   };
 
+  const timestamp = Date.now();
+  const date = new Date(timestamp);
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // Months are zero-indexed, so we add 1
+  const day = date.getDate();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+
+  let formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}-${seconds.toString().padStart(2, '0')}`;
+
+
   const validatePassword = (password) => {
     return password.length >= 6;
   };
@@ -52,7 +65,7 @@ const SignIn = ({ closeSignInModal }) => {
           email: email,
           username: userName,
           role: role,
-          last_login: Date.now(),
+          last_login: formattedDate,
         };
 
         set(ref(database, 'users/' + user.uid), user_data);

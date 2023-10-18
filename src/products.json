@@ -1,0 +1,74 @@
+{
+    "categories": [
+      {
+        "name": "Fruits",
+        "products": [
+          {
+            "name": "Apple",
+            "quantity": 100,
+            "dateHarvested": "2023-10-01",
+            "imageUrl": "apple_image_url.jpg"
+          },
+          {
+            "name": "Banana",
+            "quantity": 80,
+            "dateHarvested": "2023-09-28",
+            "imageUrl": "banana_image_url.jpg"
+          },
+          {
+            "name": "Strawberries",
+            "quantity": 50,
+            "dateHarvested": "2023-10-03",
+            "imageUrl": "strawberries_image_url.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Vegetables",
+        "products": [
+          {
+            "name": "Carrots",
+            "quantity": 120,
+            "dateHarvested": "2023-10-05",
+            "imageUrl": "carrots_image_url.jpg"
+          },
+          {
+            "name": "Tomatoes",
+            "quantity": 90,
+            "dateHarvested": "2023-10-02",
+            "imageUrl": "tomatoes_image_url.jpg"
+          },
+          {
+            "name": "Cabbage",
+            "quantity": 70,
+            "dateHarvested": "2023-10-07",
+            "imageUrl": "cabbage_image_url.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Fish",
+        "products": [
+          {
+            "name": "Salmon",
+            "quantity": 30,
+            "dateCaught": "2023-10-10",
+            "imageUrl": "salmon_image_url.jpg"
+          },
+          {
+            "name": "Cod",
+            "quantity": 25,
+            "dateCaught": "2023-10-08",
+            "imageUrl": "cod_image_url.jpg"
+          },
+          {
+            "name": "Sardines",
+            "quantity": 15,
+            "dateCaught": "2023-10-12",
+            "imageUrl": "sardines_image_url.jpg"
+          }
+        ]
+      }
+    ]
+  }
+  
