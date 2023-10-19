@@ -1,14 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, get } from 'firebase/database';
+import { database } from '../MainPublicPage/firebase';
 
-import Navbar from '../Navbar'
+import Navbar from '../Navbar';
 import Footer from '../Footer';
 
+const db = getDatabase();
+const fishRef = ref(db, 'categories/2/products');
+
 const Fish = () => {
+    const [fishData, setFishData] = useState(null);
+
+    useEffect(() => {
+        get(fishRef)
+            .then((fishData) => {
+                if (fishData.exists()) {
+                    const data = fishData.val();
+                    setFishData(data);
+                } else {
+                    console.log('No data available for Fish');
+                }
+            })
+            .catch((error) => {
+                console.error('Error getting Fish data:', error);
+            });
+    }, []);
+
     return (
-        <>
-            <h1>Fish</h1>
-        </>
-    )
+        <div className='border border-blue-400 w-full flex flex-col items-center'>
+            <div className='w-[90%] h-[10vh] mt-[5vh] flex justify-end items-center'>
+                <h1 className='text-[2rem]'>Fruits</h1>
+            </div>            
+
+            <div className='w-full flex'>
+                <div className='border border-blue-400 w-2/4 h-[15vh] flex justify-around'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                </svg>
+
+                <input type="text" placeholder='Search' className='w-1/2 h-[2rem] mt-12 pl-4 border-b-2 rounded-md focus:outline-none' />
+                </div>
+            </div>
+
+            <div className='border border-blue-400 w-[90%] h-[52vh] flex'>
+                {fishData && Object.keys(fishData).map((fishId) => {
+                    const fish = fishData[fishId];
+                    return (
+                        <div className='w-[20%] h-[20vh] flex border border-red-400' key={fishId}>
+                            <div key={fishId}>
+                                <h2>{fish.name}</h2>
+                                <p>Date Harvested: {fish.dateHarvested}</p>
+                                <p>Quantity: {fish.quantity}</p>
+                                {/* Render other vegetable details */}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+
+            <Footer />
+        </div>
+    );
 };
 
 export default Fish;
