@@ -14,6 +14,13 @@ function App() {
 
   const [ navbarContent, setNavbarContent ] = React.useState('');
 
+  React.useEffect(() => {
+    let currentPath = window.location.pathname;
+    if(currentPath = "/") {
+      setNavbarContent('')
+    }
+  })
+
   return (
     <React.StrictMode>
     <BrowserRouter>
